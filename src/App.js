@@ -40,7 +40,7 @@ export default function App() {
               <Container fixed>
           <Stack spacing={2}>
             <Typography variant="h4" component="h1" marginTop={5} marginBottom={5} align='center'>
-              Serial Port Monitor
+              MQTT client
             </Typography>
           </Stack>
       </Container>
