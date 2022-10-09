@@ -1,5 +1,19 @@
 import "./styles.css";
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+import {
+  Container, Card, CardContent, Typography, Stack, Grid,
+  Link, Select, MenuItem, Alert, Button, TextField, Switch, FormControlLabel
+} from '@mui/material';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
 const mqtt = require("mqtt");
 
 const mqtt_client = mqtt.connect("wss://mqtt.linq-it.com", {
@@ -21,9 +35,16 @@ mqtt_client.on("message", function (topic, message) {
 
 export default function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+              <Container fixed>
+          <Stack spacing={2}>
+            <Typography variant="h4" component="h1" marginTop={5} marginBottom={5} align='center'>
+              Serial Port Monitor
+            </Typography>
+          </Stack>
+      </Container>
+        
+    </ThemeProvider>
   );
 }
